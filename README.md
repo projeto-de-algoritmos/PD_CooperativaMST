@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cooperativa MST
 
-## Getting Started
+![bandeira](https://github.com/projeto-de-algoritmos/Greed_CooperativaMST/assets/54778783/c4cf29ef-ae7f-4dd1-9b55-68c1920f8c66)
 
-First, run the development server:
+**Número da Lista**: 24<br>
+**Conteúdo da Disciplina**: Greedy<br>
+
+## Alunos
+|Matrícula | Aluno |
+| -- | -- |
+| 17/0111059  |  Matheus Fonseca Sousa |
+| 17/0105342  |  Irwin Schimitt |
+
+Esse é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Sobre 
+
+O MST, Movimento dos Trabalhadores Rurais Sem Terra, é um movimento de amplitude nacional, que se baseia na aplicação do princípio da função social da terra. Ou seja, o movimento organiza um grupo de trabalhadores que tem disposição para trabalhar, mas não tem terra para plantar. Então, quando alguma terra pode ser considerada "improdutiva", no contexto do que é definido pela Constituição brasileira de 1988, o movimento a ocupa e torna produtiva através do trabalho desses camponeses sem terra. Pura e simplesmente através da aplicação da lei, o MST se tornou o maior produtor de arroz orgânico da América Latina e auxilia diariamente na alimentação de diversas famílias no Brasil. 
+
+Para isso, o MST precisa organizar o que foi produzido pela cooperativa de trabalhadores, no acampamento, e distribuir para as feiras mais próximas. Como é um movimento social com recursos limitados, que trabalha com alimentos perecíveis, é necessário organizar de maneira inteligente o que deve ser prioritariamente transportados nos caminhões. Por isso, o algoritmo Knapsack (ou algoritmo da mochila), mostra uma ótima resolução para essa situação problema.
+
+## Screenshots
+
+![Screen_Shot_2023-05-29_at_20 35 25](https://github.com/projeto-de-algoritmos/Greed_CooperativaMST/assets/54778783/96af75e6-7db3-40d3-9ef1-beec6fc9d055)
+
+## Instalação
+### Começando
+
+É necessário ter o `npm` e o `yarn` instalado na máquina.
+
+Primeiro, instale as dependências:
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+Depois execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a página ao modificar `pages/index.tsx`. A página atualiza em tempo real de acordo com o seu trabalho no arquivo.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Uso 
+O cooperativaMST é um projeto que serve para organizar, da produção da cooperativa de camponeses, o que será prioritariamente transportado em uma carga definida do caminhão. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Para utilizar o projeto, siga as instruções:
 
-## Learn More
+1. Indique a capacidade do veículo que será utilizado, em KG.
 
-To learn more about Next.js, take a look at the following resources:
+2. Adicione os alimentos que poderão ser transportados, com o peso e quanto seria cobrado por essa quantidade total de alimento.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Assim que o primeiro item for adicionado, e conforme mais alimentos forem sendo adicionados, a lista de alimentos que vão no caminhão se atualiza automaticamente.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Alguns detalhes sobre a aplicação:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- A lista de alimentos do caminhão e o valor total do que está sendo transportado são calculados utilizando o algoritmo de Knapsack.
+- A prioridade é calculada com base no valor/kg do produto.
