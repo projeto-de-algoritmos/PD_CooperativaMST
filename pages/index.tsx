@@ -10,6 +10,7 @@ import {
 import ProductTable from "../src/Components/ProductsTable";
 import ProductForm from "../src/Components/ProductForm";
 import { useCallback, useState } from "react";
+import ResultAlert from "../src/Components/ResultAlert";
 
 export type Product = {
   id: number;
@@ -19,7 +20,15 @@ export type Product = {
 };
 
 const Home: NextPage = () => {
+  const [capacity, setCapacity] = useState(1000);
   const [products, setProducts] = useState<Product[]>([]);
+
+  const handleCapacityChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setCapacity(Number(event.target.value));
+    },
+    []
+  );
 
   const addProduct = useCallback((product: Product) => {
     setProducts((prevProducts) => [...prevProducts, product]);
@@ -37,19 +46,25 @@ const Home: NextPage = () => {
       </Head>
 
       <Container maxWidth="md">
-        <Box minHeight={100} my={10}>
-          <Box>
+        <Box minHeight={100} my={4}>
+          <Box minHeight="200px">
+            <ResultAlert capacity={capacity} products={products} />
+          </Box>
+
+          <Box mt={4}>
             <Typography variant="h5" gutterBottom>
               Capacidade do veículo
             </Typography>
 
             <TextField
+              value={capacity}
               type="number"
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">kg</InputAdornment>
                 ),
               }}
+              onChange={handleCapacityChange}
             />
           </Box>
 
