@@ -12,9 +12,9 @@
 | 17/0111059 | Matheus Fonseca Sousa |
 | 17/0105342 | Irwin Schimitt        |
 
-Esse é um projeto [Next.js](https://nextjs.org/) inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Sobre
+
+⚠️ ![Vídeo com a explicação](./Explica%C3%A7%C3%A3o.mp4).
 
 O MST, Movimento dos Trabalhadores Rurais Sem Terra, é um movimento de amplitude nacional, que se baseia na aplicação do princípio da função social da terra. Ou seja, o movimento organiza um grupo de trabalhadores que tem disposição para trabalhar, mas não tem terra para plantar. Então, quando alguma terra pode ser considerada "improdutiva", no contexto do que é definido pela Constituição brasileira de 1988, o movimento a ocupa e torna produtiva através do trabalho desses camponeses sem terra. Pura e simplesmente através da aplicação da lei, o MST se tornou o maior produtor de arroz orgânico da América Latina e auxilia diariamente na alimentação de diversas famílias no Brasil.
 
@@ -24,7 +24,7 @@ Para isso, o MST precisa organizar o que foi produzido pela cooperativa de traba
 
 ![Screen_Shot_2023-05-29_at_20 35 25](https://github.com/projeto-de-algoritmos/Greed_CooperativaMST/assets/54778783/96af75e6-7db3-40d3-9ef1-beec6fc9d055)
 
-![video](./Explica%C3%A7%C3%A3o.mp4)
+
 
 ## Instalação
 
