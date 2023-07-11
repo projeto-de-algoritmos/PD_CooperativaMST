@@ -1,6 +1,6 @@
 import { Alert } from "@mui/material";
 import { Product } from "../../pages";
-import { fractionalKnapsack } from "../knapsack";
+import { knapsack } from "../knapsack";
 
 type ResultAlertProps = {
   capacity: number;
@@ -8,7 +8,7 @@ type ResultAlertProps = {
 };
 
 const ResultAlert = ({ capacity, products }: ResultAlertProps) => {
-  const { productsInBag, totalValue } = fractionalKnapsack(capacity, products);
+  const { productsInBag, totalValue } = knapsack(capacity, products);
 
   if (capacity === 0) {
     return <Alert severity="info">Informe a capacidade do veículo.</Alert>;

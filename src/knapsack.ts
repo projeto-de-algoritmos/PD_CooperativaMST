@@ -1,49 +1,38 @@
 import { Product } from "../pages";
 
-const sortProductsByPricePerWeight = (products: Product[]) => {
-  return products.sort((a, b) => {
-    const pricePerWeightA = a.price / a.weight;
-    const pricePerWeightB = b.price / b.weight;
+export function knapsack(capacity: number, products: Product[]) {
+  const n = products.length;
+  const dp = new Array(n + 1)
+    .fill(0)
+    .map(() => new Array(capacity + 1).fill(0));
 
-    if (pricePerWeightA > pricePerWeightB) {
-      return -1;
-    } else if (pricePerWeightA < pricePerWeightB) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-};
-
-export function fractionalKnapsack(capacity: number, products: Product[]) {
-  const sortedProducts = sortProductsByPricePerWeight(products);
-
-  let currentCapacity = capacity;
-  let totalValue = 0;
-  let productsInBag: Product[] = [];
-
-  for (let i = 0; i < sortedProducts.length; i++) {
-    const currentProduct = sortedProducts[i];
-
-    if (currentProduct.weight <= currentCapacity) {
-      totalValue += currentProduct.price;
-      currentCapacity -= currentProduct.weight;
-      productsInBag.push(currentProduct);
-    } else {
-      const fraction = currentCapacity / currentProduct.weight;
-
-      totalValue += fraction * currentProduct.price;
-      currentCapacity = 0;
-
-      productsInBag.push({
-        ...currentProduct,
-        weight: currentProduct.weight * fraction,
-      });
+  for (let i = 1; i <= n; i++) {
+    for (let j = 0; j <= capacity; j++) {
+      if (products[i - 1].weight <= j) {
+        dp[i][j] = Math.max(
+          dp[i - 1][j],
+          dp[i - 1][j - products[i - 1].weight] + products[i - 1].price
+        );
+      } else {
+        dp[i][j] = dp[i - 1][j];
+      }
     }
   }
 
+  let totalValue = dp[n][capacity];
+  let currentCapacity = capacity;
+  let productsInBag: Product[] = [];
+
+  for (let i = n; i > 0 && totalValue > 0; i--) {
+    if (totalValue == dp[i - 1][currentCapacity]) continue;
+
+    productsInBag.push(products[i - 1]);
+    totalValue -= products[i - 1].price;
+    currentCapacity -= products[i - 1].weight;
+  }
+
   return {
-    totalValue,
+    totalValue: dp[n][capacity],
     productsInBag,
   };
 }
